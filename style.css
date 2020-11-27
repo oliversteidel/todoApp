@@ -15,14 +15,20 @@
 
 html, body {
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Goldman', cursive;
     color: var(--font-color);
+}
+
+h1 {
+    color: rgb(199, 196, 196);
 }
 
 .screen {
     width: 100vw;
     height: 100vh;
-    background-color: var(--bg-color);
+    background-image: url(images/space.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: flex-end;
     position: relative;
@@ -36,6 +42,18 @@ html, body {
 
 .underneath {
     opacity: 0.7;
+    filter: blur(6px);
+}
+
+.underneath>.tab {
+    filter: none;
+}
+
+.remove-mode {
+    
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(250, 0, 0, 0.3);
+    background: rgba(250, 0, 0, 0.3);
 }
 
 /* --- GLOBALS END --- */
@@ -49,36 +67,41 @@ html, body {
     margin-right: auto;
     margin-bottom: 10px;
     padding: 50px;
-    background: var(--card-color);
-    background-image: linear-gradient(135deg, #aee3ee, #94bbe9);
+    /* background: var(--card-color); */
+    background-image: linear-gradient(135deg, rgba(16, 216, 219, 0.3), rgba(148, 187, 233, 0.3));
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 4px solid #10D8DB;
+    border-left-width: 1px;
+    border-top-width: 1px;
     border-radius: 0 20px 20px 20px;
     position: relative;
     box-shadow: 0 10px 50px -10px rgba(0, 0, 0, 0.5);
-    
+    transition: all .3s ease-in;
 }
 
 .myTasks {
     z-index: 9;
     position: absolute;
-    left: 50px;    
+    left: 50px;
 }
 
 .tab {
     width: 150px;
     height: 30px;
     position: absolute;
-    left: 0;
+    left: -1px;
     top: -30px;
-    background: #aee3ee;
+    color: rgb(199, 196, 196);
+    background: rgba(16, 216, 219, 0.3);
+    border: 1px solid #10D8DB;
     border-radius: 5px 5px 0 0;
     display: flex;
     align-items: center;
     padding-left: .5em;
     font-size: 1em;
-    font-weight: 300;
+    font-weight: 400;
     box-shadow: 5px -5px 15px -10px rgba(0, 0, 0, 0.5), -5px -5px 15px -10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
@@ -95,11 +118,11 @@ html, body {
 input {
     width: 300px;
     height: 40px;
+    border: 1px solid #10D8DB;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-left: 10px;
     outline: none;
-    border: none;
     background: #acc0db;
     box-shadow: inset 6px 6px 12px #92a3ba, inset -6px -6px 12px #c6ddfc;
 }
@@ -117,6 +140,7 @@ input {
     justify-content: center;
     align-items: center;
     font-size: 1rem;
+    border: 1px solid #10D8DB;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background: linear-gradient(145deg, #00b4dd, #0097ba);
@@ -142,6 +166,10 @@ input {
     margin-left: 10px;
 }
 
+.project-btn {
+    border: 1px solid #10D8DB;
+}
+
 .task-container {
     width: 500px;
     height: 1000px;
@@ -156,6 +184,7 @@ input {
     width: 400px;
     height: 30px;
     background-color: rgb(199, 196, 196);
+    border: 1px solid #10D8DB;
     border-radius: 5px;
     background: #acc0db;
     box-shadow: inset 6px 6px 12px #92a3ba, inset -6px -6px 12px #c6ddfc;
@@ -164,6 +193,11 @@ input {
     margin-bottom: 10px;
     position: relative;
     cursor: pointer;
+}
+
+.checked {
+    background-color: rgba(199, 196, 196, 0.3);
+    color: rgba(44, 48, 57, 0.3);
 }
 
 .checked::before {
@@ -179,7 +213,7 @@ input {
     content: '\f058';
     right: -35px;
     top: -2px;
-    color: #078950;
+    color: #10D8DB;
     animation: appear .3s;
 }
 
@@ -225,6 +259,7 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 3rem;
 }
 
 .timer-btn-container {

@@ -80,8 +80,7 @@ $(document).ready(function () {
     //per klick auf Task ist diese erledigt:
     //-transparenz auf 50% / -grüner Haken als pseudo element (.checked::before)
     //automatische Speicherung aller Tasks bis auf die erledigten - diese werden aus dem speicher gelöscht
-    $('body').on('click', '.task', function () {
-        $(this).css('opacity', '0.5');
+    $('body').on('click', '.task', function () {        
         $(this).addClass('checked');
         $(this).removeClass('todo');
         saveTasks();
@@ -105,6 +104,8 @@ $(document).ready(function () {
     //MyTimer Funkionalität START
     //###############################
 
+    var removeMode = false;
+
     // easytimer.js integration
 
     var timer1 = new Timer();
@@ -117,7 +118,7 @@ $(document).ready(function () {
     });
 
     timer2.addEventListener('secondsUpdated', function (e) {
-        $('.project-time-2').html(timer1.getTimeValues().toString())
+        $('.project-time-2').html(timer2.getTimeValues().toString())
     });
 
     timer3.addEventListener('secondsUpdated', function (e) {
@@ -233,6 +234,7 @@ $(document).ready(function () {
         }
     }
 
+
     loadProjects();
 
     $('.timer-input-btn').click(function () {
@@ -240,6 +242,32 @@ $(document).ready(function () {
             addProject();
             saveProjects();
         }
+    });
+
+    $('.btn-remove-project').click(function () {
+        if (!removeMode) {
+            removeMode = true;
+            $('.timer-container').addClass('remove-mode');
+        } else {
+            removeMode = false;
+            $('.timer-container').removeClass('remove-mode');
+        }
+    });
+
+    $('.project').click(function () {
+        if (removeMode) {
+            var getClass = this.classList.item(1);
+            var timeNumber = getClass.charAt(getClass.length - 1);
+            $(this).html("");
+            localStorage.removeItem(getClass);
+            localStorage.removeItem('minutes' + timeNumber);
+            localStorage.removeItem('hours' + timeNumber);
+            removeMode = false;
+            $('.timer-container').removeClass('remove-mode');
+            $('.project-time-' + timeNumber).html("");
+
+        }
+
     });
 
 
