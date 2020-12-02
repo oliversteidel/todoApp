@@ -21,6 +21,7 @@ html, body {
 
 h1 {
     color: rgb(199, 196, 196);
+    font-size: 4rem;
 }
 
 .screen {
@@ -30,7 +31,8 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     position: relative;
 }
 
@@ -63,8 +65,7 @@ h1 {
 .container {
     width: 600px;
     height: 90vh;
-    margin-left: auto;
-    margin-right: auto;
+    
     margin-bottom: 10px;
     padding: 50px;
     /* background: var(--card-color); */
@@ -83,8 +84,8 @@ h1 {
 
 .myTasks {
     z-index: 9;
-    position: absolute;
-    left: 50px;
+    transform: translateX(200px);
+    
 }
 
 .tab {
@@ -243,8 +244,8 @@ input {
 /* --- TIMER START --- */
 
 .myTimer {
-    position: absolute;
-    left: 210px;
+    transform: translateX(-250px);
+    
 }
 
 .btn-remove-project {
