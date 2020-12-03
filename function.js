@@ -31,7 +31,7 @@ $(document).ready(function () {
             localStorage.setItem("loadKey", loadKey); //loadKey = index der letzten task in der Liste
         }
         //löscht alle tasks aus dem speicher die erledigt sind oder aus der liste gelöscht wurden
-        for (let i = (loadKey + 1); i <= 20; i++) {
+        for (var i = (loadKey + 1); i <= 20; i++) {
             localStorage.removeItem(i);
             let temp = localStorage.getItem(i);
             if (temp === null) {
@@ -44,7 +44,7 @@ $(document).ready(function () {
         loadKey = localStorage.getItem("loadKey");
 
         if (loadKey !== null) {
-            for (let i = 0; i <= loadKey; i++) {
+            for (var i = 0; i <= loadKey; i++) {
                 $('.task-container').append('<p class="task todo">' + localStorage.getItem(i) + '</p>');
             };
         }
