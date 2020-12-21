@@ -11,6 +11,7 @@
     --bg-color: #78acb6;
     --card-color: #aee3ee;
     --font-color: #2C3039;
+    --border-color: rgba(255, 255, 255, 0.3);
 }
 
 html, body {
@@ -22,6 +23,7 @@ html, body {
 h1 {
     color: rgb(199, 196, 196);
     font-size: 4rem;
+    font-weight: 400;
 }
 
 .screen {
@@ -39,15 +41,6 @@ h1 {
     /*class to handle which card is active and in front */
     z-index: 10;
     opacity: 1;
-}
-
-.underneath {
-    opacity: 0.7;
-    filter: blur(6px);
-}
-
-.underneath>.tab {
-    filter: none;
 }
 
 .remove-mode {
@@ -69,9 +62,10 @@ h1 {
     flex-direction: column;
     align-items: center;
     position: relative;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(2px);
     box-shadow: 0 10px 50px -10px rgba(0, 0, 0, 0.5);
     transition: all .3s ease-in;
-    
 }
 
 .container::before {
@@ -101,25 +95,6 @@ h1 {
     /* transform: translateX(200px); */
     margin-left: 50px;
     margin-right: 50px;
-}
-
-.tab {
-    width: 150px;
-    height: 30px;
-    position: absolute;
-    left: -1px;
-    top: -30px;
-    color: rgb(199, 196, 196);
-    background: rgba(16, 216, 219, 0.3);
-    border: 1px solid #10D8DB;
-    border-radius: 5px 5px 0 0;
-    display: flex;
-    align-items: center;
-    padding-left: .5em;
-    font-size: 1em;
-    font-weight: 400;
-    box-shadow: 5px -5px 15px -10px rgba(0, 0, 0, 0.5), -5px -5px 15px -10px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
 }
 
 .heading {
@@ -188,7 +163,6 @@ input {
 
 .task-container {
     width: 500px;
-    /* height: 1000px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -258,10 +232,6 @@ input {
 
 /* --- TIMER START --- */
 
-.myTimer {
-    /* transform: translateX(-250px); */
-}
-
 .btn-remove-project {
     width: 195px;
     height: 35px;
@@ -270,7 +240,6 @@ input {
 
 .timer-container {
     width: 500px;
-    /* height: 1000px; */
     display: flex;
     flex-direction: column;
     align-items: center;

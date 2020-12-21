@@ -50,15 +50,7 @@ $(document).ready(function () {
         }
     }
 
-    //Auswählen der aktiven Karte und automatischer focus auf dessen input
-    $('.tab').click(function () {
-        $(this).parent().addClass('active-card');
-        $(this).parent().removeClass('underneath');
-        $('.tab').not(this).parent().removeClass('active-card');
-        $('.tab').not(this).parent().addClass('underneath');
-        $(this).siblings('.input-container').children().focus();
-    });
-
+    
     //hinzufügen einer neuen task per klick auf den "new" button
     //automatische Speicherung aller Tasks
     $('.task-input-btn').click(function () {
